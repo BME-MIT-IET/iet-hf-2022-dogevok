@@ -67,7 +67,7 @@
         ~ns.navigator.userAgent.indexOf('MSIE');
 
     // Trick to bypass Webpack's require at compile time
-    var nodeRequire = isNode ? ns['require'] : null;
+    var nodeRequire = isNode ? ns.required : null;
 
     // mapping between what we want and <a> element properties
     var map = {
@@ -294,9 +294,7 @@
                         continue;
                     }
                     s += s ? '&' : '';
-                    s += e(i) + (v === null
-                        ? ''
-                        : '=' + e(v));
+                    s += e(i) + (v === null ? '' : '=' + e(v));
                 }
                 continue;
             }
@@ -378,9 +376,7 @@
             }
 
             for (s = paths.length; i < s; i++) {
-                paths[i] = !i && RX_PATH_SEMI.test(paths[i])
-                    ? paths[i]
-                    : encode(paths[i]);
+                paths[i] = !i && RX_PATH_SEMI.test(paths[i]) ? paths[i] : encode(paths[i]);
             }
 
             this.path = prefix + paths.join('/');
