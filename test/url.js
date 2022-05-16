@@ -45,8 +45,8 @@ describe('Url()', function () {
         assert.equal(u instanceof Url, true);
     });
     it('should match current dir when construct with no argument', function () {
-        const u = new Url();
-        const dir = u.path.replace(/\//g, p.sep);
+        let u = new Url();
+        let dir = u.path.replace(/\//g, p.sep);
         process.platform.match(/^win/) && (dir = dir.substr(1));
         assert.equal(dir, fs.realpathSync('.'));
     });
@@ -177,19 +177,85 @@ describe('Path url encoding', function () {
 });
 
 function generateRandomString(len){
-    let result = '';
-    let characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+';
+    let result = 'http://';
+    let characters='abcdefghijklmnopqrstuvwxyz0123456789/';
     let charactersLength = characters.length;
     for ( let i = 0; i < len; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    return result;
+    return result+"/";
 }
 
 describe('Stressz Teszt',function(){
-    const longString = 'http://'+generateRandomString(200);
+    let longString = generateRandomString(1000);
     it('Hosszú input fogadása', function(){
-        const u = new Url(longString);
+        let u = new Url(longString);
         assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(5000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(10000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(15000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(20000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(25000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(30000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(35000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(40000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(45000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+    longString = generateRandomString(50_000);
+    it('Hosszú input fogadása', function(){
+        let u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+
+    it('Sok URL módosítás', function(){
+        const chars='abcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength= chars.length;
+        let modPath=[];
+        for(let i=0;i<1000;++i){
+            modPath.push(chars.charAt(Math.floor(Math.random() * charactersLength)));
+        }
+        const basis= generateRandomString(1000)+"?q=";
+        let url=new Url(basis)
+        for(let i=0;i<1000;++i){
+            url.query.q=modPath[i];
+        }
+        let dest=new Url(basis+modPath[999]);
+        assert.equal(url.toString(), dest.toString());
     });
 });
