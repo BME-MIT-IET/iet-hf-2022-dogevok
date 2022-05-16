@@ -175,3 +175,21 @@ describe('Path url encoding', function () {
         assert.equal(u.toString(), 'http://localhost/path%2bwith%2bplus');
     });
 });
+
+function generateRandomString(len){
+    let result = '';
+    let characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/+';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < len; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+describe('Stressz Teszt',function(){
+    const longString = 'http://'+generateRandomString(200);
+    it('Hosszú input fogadása', function(){
+        const u = new Url(longString);
+        assert.equal(u.toString(), longString);
+    });
+});
