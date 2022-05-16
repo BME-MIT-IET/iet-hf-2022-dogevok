@@ -177,7 +177,7 @@ describe('Path url encoding', function () {
 });
 
 function generateRandomString(len){
-    let result = 'http://';
+    let result = 'http://f';
     let characters='abcdefghijklmnopqrstuvwxyz0123456789/';
     let charactersLength = characters.length;
     for ( let i = 0; i < len; i++ ) {
@@ -185,63 +185,74 @@ function generateRandomString(len){
     }
     return result+"/";
 }
-
-describe('Stressz Teszt',function(){
+function generateRandomQuery(len){
+    let result = '';
+    let characters='abcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < len; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+describe('Stressz Teszt',function() {
     let longString = generateRandomString(1000);
-    it('Hosszú input fogadása', function(){
-        let u = new Url(longString);
-        assert.equal(u.toString(), longString);
+    console.log(longString)
+    it('Hosszú input fogadása', function () {
+        let uu = new Url(longString);
+        assert.equal(uu.toString(), longString);
     });
     longString = generateRandomString(5000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(10000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(15000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(20000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(25000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(30000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(35000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(40000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(45000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
     longString = generateRandomString(50_000);
-    it('Hosszú input fogadása', function(){
+    it('Hosszú input fogadása', function () {
         let u = new Url(longString);
         assert.equal(u.toString(), longString);
     });
+});
+describe('Stressz Teszt módosításra',function(){
 
     it('Sok URL módosítás', function(){
         const chars='abcdefghijklmnopqrstuvwxyz0123456789';
@@ -257,5 +268,31 @@ describe('Stressz Teszt',function(){
         }
         let dest=new Url(basis+modPath[999]);
         assert.equal(url.toString(), dest.toString());
+    });
+    let longString = generateRandomQuery(4000);
+    it('Encode - decode', function(){
+        let url1 = new Url('http://localhost/?a='+longString).toString();
+        let url2 = new Url('http://localhost/?a='+longString).toString();
+        assert.equal(url1.toLowerCase(), url2.toLowerCase());
+    });
+    longString = generateRandomQuery(4000);
+    it('Encode - decode', function(){
+        let url1 = new Url('http://localhost/?a='+longString).toString();
+        let url2 = new Url('http://localhost/?a='+longString).toString();
+        assert.equal(url1.toLowerCase(), url2.toLowerCase());
+    });
+    longString = generateRandomQuery(4000);
+    it('Encode - decode', function(){
+        let url1 = new Url('http://localhost/?a='+longString).toString();
+        let url2 = new Url('http://localhost/?a='+longString).toString();
+        assert.equal(url1.toLowerCase(), url2.toLowerCase());
+    });
+
+
+    it('Hosszú query levágása',function(){
+        let longString = generateRandomQuery(4000);
+        let url_n = new Url('http://localhost/?a='+longString);
+        url_n.clearQuery();
+        assert.equal(url_n.toString(), 'http://localhost/');
     });
 });
