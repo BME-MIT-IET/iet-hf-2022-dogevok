@@ -46,7 +46,7 @@ describe('Url()', function () {
     });
     it('should match current dir when construct with no argument', function () {
         const u = new Url();
-        const dir = u.path.replace(/\//g, p.sep);
+        let dir = u.path.replace(/\//g, p.sep);
         process.platform.match(/^win/) && (dir = dir.substr(1));
         assert.equal(dir, fs.realpathSync('.'));
     });
