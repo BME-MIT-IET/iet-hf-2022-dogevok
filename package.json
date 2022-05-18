@@ -21,6 +21,7 @@
   "main": "url.min.js",
   "scripts": {
     "test": "mocha ./test/url.js",
+    "cucumber": "npx cucumber-js",
     "minify": "./node_modules/uglify-js/bin/uglifyjs url.js --output url.min.js --compress --mangle",
     "test:coverage":"npm run cover:unit && npm run cover:report",
     "test:coveragehtml": "npm run cover:unit && npm run cover:reporthtml",
