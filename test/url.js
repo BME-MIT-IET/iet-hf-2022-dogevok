@@ -214,3 +214,14 @@ describe('Stressz Teszt módosításra',function(){
         assert.equal(url_n.toString(), 'https://localhost/');
     });
 });
+
+describe("Url.isEmptyQuery tesztje", function () {
+    it ("Üres query esetén true-t ad vissza", function () {
+        let url = new Url("https://github.com/BME-MIT-IET/iet-hf-2022-dogevok");
+        assert(url.isEmptyQuery());
+    });
+    it ("Nem üres query esetén false-t ad vissza", function () {
+        let url = new Url("https://github.com/BME-MIT-IET/iet-hf-2022-dogevok/a?b=2&c=4&d=5");
+        assert(!url.isEmptyQuery());
+    });
+})
