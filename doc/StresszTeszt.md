@@ -17,3 +17,5 @@ Végül úgy döntöttem a tesztek bemenetei fix karakterláncok lesznek. Gener�
 stringeket, és a teszteket kijavítottam. 
 
 Feladaton dolgoztak: Csáki Bence és Turai Botond
+
+![img/stressz.png](img/stressz.png)
