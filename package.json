@@ -29,7 +29,7 @@
     "cover:reporthtml": "nyc report --reporter=html --report-dir='./jscoverage'"
   },
   "nyc": {
-    "exclude": ["**/*_test.js"]
+    "exclude": ["**/test/url.js"]
   },
   "maintainers": [
     {
