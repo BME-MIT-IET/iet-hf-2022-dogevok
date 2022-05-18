@@ -15,3 +15,5 @@ Math osztály random függvénye csupán peszeudo random, és nem így nem bizto
 ### Javítás ### 
 Végül úgy döntöttem a tesztek bemenetei fix karakterláncok lesznek. Generáltam kellően hosszú
 stringeket, és a teszteket kijavítottam. 
+
+Feladaton dolgoztak: Csáki Bence és Turai Botond
