@@ -25,6 +25,17 @@ Then('I should see the protocol is {string}', function (expectedProtocol) {
 });
 
 
+Given('I have a {string} port in a url', function (port) {
+    this.url = new Url('http://example:'+port);
+});
+When('I check the port of the url', function () {
+    this.port = this.url.port;
+});
+Then('I should see the port is {string}', function (expectedPort) {
+    assert.equal(this.port, expectedPort);
+});
+
+
 Given('I have a url without query params', function () {
     this.url = new Url('http://example.com');
 });
@@ -37,3 +48,23 @@ Then('The query params should be {string}', function (expectedQuery) {
 });
 
 
+Given('I have an url: {string}', function (input_url) {
+    this.url = new Url(input_url);
+});
+When('I set the hash to {string}', function (hash) {
+    this.url.hash = hash;
+});
+Then('I should have a new url with hash: {string}', function (url) {
+    assert.strictEqual(this.url.toString(), url);
+});
+
+
+Given('I have an url with path: {string}', function (path) {
+    this.url = new Url(path);
+});
+When('I change the path to {string}', function (newPath) {
+    this.url.path = newPath;
+});
+Then('I should have the path: {string}', function (expectedAnswer) {
+    assert.strictEqual(this.url.toString(), expectedAnswer);
+});
