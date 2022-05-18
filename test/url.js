@@ -45,7 +45,7 @@ describe('Url()', function () {
         assert.equal(u instanceof Url, true);
     });
     it('should match current dir when construct with no argument', function () {
-        let u = new Url();
+        const u = new Url();
         let dir = u.path.replace(/\//g, p.sep);
         process.platform.match(/^win/) && (dir = dir.substr(1));
         assert.equal(dir, fs.realpathSync('.'));
