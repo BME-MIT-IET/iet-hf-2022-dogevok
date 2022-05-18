@@ -225,7 +225,7 @@
             return String.fromCharCode((n1 << 6) + n2);
         });
 
-        return s.replace(RX_DECODE_3, function (code, hex) {
+        return s.replace(RX_DECODE_3, function (_, hex) {
             return String.fromCharCode(parseInt(hex, 16));
         });
     }
@@ -431,9 +431,9 @@
             (this.user && (
                 encode(this.user) + (this.pass && (':' + encode(this.pass))
             ) + '@')) +
-            (this.host && this.host) +
+            (this.host) +
             (this.port && (':' + this.port)) +
-            (this.path && this.path) +
+            (this.path) +
             (this.query.toString() && ('?' + this.query)) +
             (this.hash && ('#' + encode(this.hash)))
         );
