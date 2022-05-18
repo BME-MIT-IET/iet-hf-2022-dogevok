@@ -4,7 +4,7 @@ const Url = require('../../url.min.js');
 
 
 Given('I have a url with query params', function () {
-    this.url = new Url('http://example.com/?a&a=&b=&c=&d=&e=&f=&g=&h#foo');
+    this.url = new Url('https://example.com/?a&a=&b=&c=&d=&e=&f=&g=&h#foo');
 });
 When('I remove the query params', function(){
     this.url.clearQuery();
@@ -26,7 +26,7 @@ Then('I should see the protocol is {string}', function (expectedProtocol) {
 
 
 Given('I have a {string} port in a url', function (port) {
-    this.url = new Url('http://example:'+port);
+    this.url = new Url('https://example:'+port);
 });
 When('I check the port of the url', function () {
     this.port = this.url.port;
@@ -37,7 +37,7 @@ Then('I should see the port is {string}', function (expectedPort) {
 
 
 Given('I have a url without query params', function () {
-    this.url = new Url('http://example.com');
+    this.url = new Url('https://example.com');
 });
 When('I add query params a={string} and b={int}', function (value1, value2) {
     this.url.query.a = value1;

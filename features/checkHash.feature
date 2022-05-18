@@ -8,6 +8,6 @@ Feature: CheckHash
 
   Examples:
    | url_in                         | hash | url                                 |
-   | http://example.com             | hess | http://example.com/#hess            |
-   | http://example.com/asd         | hess | http://example.com/asd#hess         |
-   | http://example.com/asdasd?a=1  | hess | http://example.com/asdasd?a=1#hess  | 
+   | https://example.com             | hess | https://example.com/#hess            |
+   | https://example.com/asd         | hess | https://example.com/asd#hess         |
+   | https://example.com/asdasd?a=1  | hess | https://example.com/asdasd?a=1#hess  | 
