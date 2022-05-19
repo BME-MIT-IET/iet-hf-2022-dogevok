@@ -37,14 +37,14 @@ Then('I should see the port is {string}', function (expectedPort) {
 });
 
 
-Given('I have a url without query params', function () {
-    this.url = new Url('https://example.com');
+Given('I have a url: {string} without query params', function (url) {
+    this.url = new Url(url);
 });
-When('I add query params a={string} and b={int}', function (value1, value2) {
+When('I add query params a={string} and b={string}', function (value1, value2) {
     this.url.query.a = value1;
     this.url.query.b = value2;
 });
-Then('The query params should be {string}', function (expectedQuery) {
+Then('The query params should be "{string}"', function (expectedQuery) {
     assert.equal(this.url.query, expectedQuery);
 });
 
