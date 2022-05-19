@@ -22,6 +22,7 @@
   "scripts": {
     "test": "mocha ./test/url.js",
     "minify": "./node_modules/uglify-js/bin/uglifyjs url.js --output url.min.js --compress --mangle",
+    "bdd_test": "cucumber-js --publish",
     "test:coverage":"npm run cover:unit && npm run cover:report",
     "test:coveragehtml": "npm run cover:unit && npm run cover:reporthtml",
     "cover:unit": "nyc --silent npm run test",
