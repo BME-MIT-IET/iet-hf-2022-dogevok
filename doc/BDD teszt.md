@@ -20,3 +20,12 @@ Az url protocol-jának felismerését teszteltük.
 
 ### Query paraméterek törlése
 Az url-hez query paramétereinek ürítését teszteltük.
+
+### Query hossza
+Az url-hez query hosszának ellenőrzése
+
+### URL hossza
+Az egéstz url hossza extra paraméterek hozzáadása után
+
+By
+Matyi-Sipor
