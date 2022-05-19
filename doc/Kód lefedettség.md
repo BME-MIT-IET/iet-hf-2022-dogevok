@@ -4,6 +4,9 @@
  
  A tesztek futtatásához az eredetileg a projektben található mocha-t használtam, a kód lefedettségéhez pedig az istanbul package-t telepítettem. A _package.json_ fájlban létrehoztam újabb script parancsokat annak érdekében, hogy egyszerűen futtathatóak legyenek a tesztek, a code coverage eredményének konzolos megjelenítése valamint annak html-be generálása.
 
+ ## Autorun code coverage
+ A _node.js.yml_ fájl kiegészítésével minden master ágra történő pusholás után automatikusan lefutnak a tesztek, valamint a kód lefedettség mérése.
+
  ## Script parancsok
  - `npm run test:coverage`: tesztek futtatása és kód lefedettség megjelenítése konzolon 
  - `npm run test:coveragehtml`: tesztek futtatása és kód lefedettségéről html generálása
@@ -21,9 +24,7 @@
 
 ## Új kód lefedettség
 
-![img/code_coverage/code_coverage_console_new.png](img/code_coverage/code_coverage_console_new.png)
-
-![img/code_coverage/code_coverage_html_new.png](img/code_coverage/code_coverage_html_new.png)
+_Az autorun code coverage beüzemelése miatt, itt nincs értelme konkrét megjelenítésének, mivel új unit teszt hozzáadása során ez az eredmény változik._
 
 Az eredeti tesztek közötti hibás teszt javításra került. Ebben egy const változónak próbáltak új értéket adni.
 
@@ -34,6 +35,6 @@ További három új unit tesztet írtunk, amelyek a fentebb található képen l
 - Stressz teszt módosításra
 - Url.isEmptyQuery tesztelése
 
-Stressz teszteket Turai Botond, Url.isEmptyQuery tesztet Castillo-Hoós Marcell készítette. Kód lefedettséget Castillo-Hoós Marcell segítségével Hell Csaba végezte.
+Stressz teszteket Turai Botond, Url.isEmptyQuery tesztet Castillo-Hoós Marcell készítette. Kód lefedettséget Castillo-Hoós Marcell és Turai Botond segítségével Hell Csaba végezte. Az autorun code coverage beüzemelése András Mátyás közreműködésével történt.
 
 A kód megfelelő dokumentálásának hiányában sok időbe telt megérteni a kódot, így a tesztek megírása is sok időt vett igénybe.

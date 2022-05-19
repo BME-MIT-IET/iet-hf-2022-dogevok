@@ -25,7 +25,7 @@
     "test:coverage":"npm run cover:unit && npm run cover:report",
     "test:coveragehtml": "npm run cover:unit && npm run cover:reporthtml",
     "cover:unit": "nyc --silent npm run test",
-    "cover:report": "nyc report --reporter=lcov --reporter=text --report-dir='./jscoverage'",
+    "cover:report": "nyc --reporter=text mocha",
     "cover:reporthtml": "nyc report --reporter=html --report-dir='./jscoverage'"
   },
   "nyc": {
