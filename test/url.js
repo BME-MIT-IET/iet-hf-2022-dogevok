@@ -196,8 +196,8 @@ describe('Stressz Teszt módosításra',function(){
 
         const basis= "https://eukpucc3vogc9n44d0chlr6ohedrqn0ue1jekalct3dlcunz8zpom5s2rb268acix28xvhbd4q9cuuqllbuxqlt1ms9q9wd57z9qs?q=";
         let url=new Url(basis)
-        for(let i=0;i<modPath.length;++i){
-            url.query.q=modPath[i];
+        for(let character of modPath){
+            url.query.q=character;
         }
         let dest=new Url(basis+modPath[modPath.length-1]);
         assert.equal(url.toString(), dest.toString());
