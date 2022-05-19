@@ -1,6 +1,7 @@
 const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 const Url = require('../../url.min.js');
+const { url } = require('inspector');
 
 
 Given('I have a url with query params', function () {
@@ -67,4 +68,26 @@ When('I change the path to {string}', function (newPath) {
 });
 Then('I should have the path: {string}', function (expectedAnswer) {
     assert.strictEqual(this.url.toString(), expectedAnswer);
+});
+
+
+Given('I have new url: {string}', function(url){
+    this.url = new Url(url);
+});
+When('I add a query: {string}', function(query){
+    this.url.query = query;
+});
+Then('I should have a new url with the query length: {string}', function(n){
+   assert.equal(this.url.queryLength(), n)
+}); 
+
+
+Given('I have another url: {string}', function(url){
+    this.url = new Url(url);
+});
+When('I add params: {string}', function(params){
+    this.url.path = params;
+});
+Then('I should have a new url with the length: {string}', function(n){
+   assert.equal((this.url.toString()).length, n)
 });
