@@ -7,7 +7,7 @@ Feature: CheckHash
     Then I should have a new url with hash: "<url>"
 
   Examples:
-   | url_in                         | hash | url                                 |
+   | url_in                          | hash | url                                 |
    | https://example.com             | hess | https://example.com/#hess            |
    | https://example.com/asd         | hess | https://example.com/asd#hess         |
    | https://example.com/asdasd?a=1  | hess | https://example.com/asdasd?a=1#hess  | 
